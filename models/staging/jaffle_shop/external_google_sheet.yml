@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw_calendar
+    schema: external_schema           # change this to your target schema name
+    tables:
+      - name: calendar
+        description: "Calendar data from Google Sheet – tab ‘Calendar’"
+        external:
+          location: "https://docs.google.com/spreadsheets/d/1DHug2ValeonWaCyDDjNsSQ8RAoJKzVOPJz0cVuYGZ_k/export?format=csv&gid=507861301"
+          file_format: "CSV"
+          row_format: "DELIMITED"
+          tbl_properties: "('skip.header.line.count'='1')"   # if first row is headers
+          partitions: []   # likely none for a simple sheet
